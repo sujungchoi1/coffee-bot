@@ -1,8 +1,22 @@
 ﻿# CoffeeBot
+ 
+ ## ✏️ Sequential Flow (Waterfall Dialog)
+ 
+    1) Overall Process
+      - Welcome Message
+      - Order Coffee
+      - Place Order (save the order to the CoffeeOrder list)
 
-Bot Framework v4 echo bot sample.
+    2) Order Coffee
+      - Customer Name
+      - Coffee Menu
+          - if latte is selected, additional milk options are provided
+      - Coffee Size
+      - Coffee Temp
+      - Extra (extra shot, syrup, whip cream..)
+      - Confirm the order
 
-This bot has been created using [Bot Framework](https://dev.botframework.com), it shows how to create a simple bot that accepts input from the user and echoes it back.
+This bot was created using Bot Framework v4 echo bot template, and Models, Dialogs, and CoffeeOrderBot were manually added.
 
 ## Prerequisites
 
