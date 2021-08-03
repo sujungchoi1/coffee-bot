@@ -1,4 +1,4 @@
-﻿# CoffeeBot
+﻿# CoffeeBot ☕️
  
  ## ✏️ Sequential Flow (Waterfall Dialog)
  
