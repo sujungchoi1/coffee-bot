@@ -27,20 +27,11 @@ namespace EchoBot
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers().AddNewtonsoftJson();
+            services.AddMvc(options => options.EnableEndpointRouting = false);
+            // services.AddControllers().AddNewtonsoftJson();
 
             // Create the Bot Framework Adapter with error handling enabled.
             services.AddSingleton<IBotFrameworkHttpAdapter, AdapterWithErrorHandler>();
-
-            // Create the storage we'll be using for User and Conversation state.
-            // var storage = new MemoryStorage();
-            // // Create the User state passing in the storage layer.
-            // var userState = new UserState(storage);
-            // services.AddSingleton(userState);
-
-            // // Create the Conversation state passing in the storage layer.
-            // var conversationState = new ConversationState(storage);
-            // services.AddSingleton(conversationState);
 
             // Create the storage we'll be using for User and Conversation state
             services.AddSingleton<IStorage, MemoryStorage>();
@@ -67,17 +58,23 @@ namespace EchoBot
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseDefaultFiles()
-                .UseStaticFiles()
-                .UseWebSockets()
-                .UseRouting()
-                .UseAuthorization()
-                .UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllers();
-                });
-
-            // app.UseHttpsRedirection();
+            // app.UseDefaultFiles()
+            //     .UseStaticFiles()
+            //     .UseWebSockets()
+            //     .UseRouting()
+            //     .UseAuthorization()
+            //     .UseEndpoints(endpoints =>
+            //     {
+            //         endpoints.MapControllers();
+            //     });
+            app.UseDefaultFiles();
+            app.UseMvc(routes =>
+                        {
+                            routes.MapRoute(
+                                name: "default",
+                                template: "{controller=Bot}/{action=Index}/{id?}");
+                        });
+            app.UseStaticFiles();
         }
     }
 }

@@ -1,1 +1,9 @@
+appsettings.json
+
+.DS_Store
+
+# .NET Core build folders
+bin/
+obj/
+
 Archive.zip

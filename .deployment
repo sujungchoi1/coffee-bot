@@ -1,2 +1,2 @@
 [config]
-SCM_SCRIPT_GENERATOR_ARGS=--aspNetCore "CoffeeBot.csproj"
+SCM_SCRIPT_GENERATOR_ARGS=--aspNetCore "./CoffeeBot.csproj"
